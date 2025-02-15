@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://da7pwkjpr15o3"]
+
+[ext_resource type="PackedScene" uid="uid://duqkvkl5f2u4a" path="res://InGame/player.tscn" id="1_jb0f3"]
+[ext_resource type="PackedScene" uid="uid://skx4hf5c78oh" path="res://InGame/Bullet.tscn" id="2_afx4m"]
+
+[node name="GameScence" type="Node2D"]
+position = Vector2(21, 66)
+
+[node name="player" parent="." instance=ExtResource("1_jb0f3")]
+position = Vector2(91, 81)
+
+[node name="Bullet" parent="." instance=ExtResource("2_afx4m")]
+position = Vector2(-29, -36)

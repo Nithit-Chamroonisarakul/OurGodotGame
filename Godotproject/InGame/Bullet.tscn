@@ -1,0 +1,47 @@
+[gd_scene load_steps=8 format=3 uid="uid://skx4hf5c78oh"]
+
+[ext_resource type="Script" path="res://InGame/bullet.gd" id="1_gx6g4"]
+[ext_resource type="Texture2D" uid="uid://dtbeeg503tg5u" path="res://sprite/bullet.png" id="2_c43vd"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1ophr"]
+atlas = ExtResource("2_c43vd")
+region = Rect2(0, 0, 26, 9)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k8o7i"]
+atlas = ExtResource("2_c43vd")
+region = Rect2(26, 0, 26, 9)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nblwg"]
+atlas = ExtResource("2_c43vd")
+region = Rect2(52, 0, 26, 9)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5p61q"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1ophr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k8o7i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nblwg")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_gt0n6"]
+radius = 4.0
+
+[node name="Bullet" type="Area2D"]
+script = ExtResource("1_gx6g4")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-2.38419e-07, 0)
+scale = Vector2(0.259615, 0.680556)
+sprite_frames = SubResource("SpriteFrames_5p61q")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_gt0n6")

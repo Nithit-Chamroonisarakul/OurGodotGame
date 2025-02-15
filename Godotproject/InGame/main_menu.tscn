@@ -1,0 +1,20 @@
+[gd_scene load_steps=2 format=3 uid="uid://conyn13vrprk0"]
+
+[ext_resource type="Script" path="res://InGame/main_menu.gd" id="1_fgk3v"]
+
+[node name="MainMenu" type="Node2D"]
+script = ExtResource("1_fgk3v")
+
+[node name="StartButton" type="Button" parent="."]
+offset_left = 429.0
+offset_top = 159.0
+offset_right = 663.0
+offset_bottom = 246.0
+text = "START"
+
+[node name="ExitButton" type="Button" parent="."]
+offset_left = 424.0
+offset_top = 354.0
+offset_right = 661.0
+offset_bottom = 439.0
+text = "EXIT"
