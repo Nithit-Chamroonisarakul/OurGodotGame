@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://da7pwkjpr15o3"]
+
+[ext_resource type="PackedScene" uid="uid://duqkvkl5f2u4a" path="res://InGame/player.tscn" id="1_jb0f3"]
+[ext_resource type="PackedScene" uid="uid://skx4hf5c78oh" path="res://InGame/Bullet.tscn" id="2_afx4m"]
+[ext_resource type="PackedScene" uid="uid://cru486oxvk7q4" path="res://Enemy.tscn" id="3_vlyti"]
+
+[node name="GameScence" type="Node2D"]
+position = Vector2(21, 66)
+
+[node name="player" parent="." instance=ExtResource("1_jb0f3")]
+position = Vector2(495, 192)
+
+[node name="Bullet" parent="." instance=ExtResource("2_afx4m")]
+position = Vector2(-29, -36)
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("3_vlyti")]
+position = Vector2(483, 84)
