@@ -1,0 +1,67 @@
+[gd_scene load_steps=10 format=3 uid="uid://c1abscvgr4knq"]
+
+[ext_resource type="Script" path="res://InGame/enemy.gd" id="1_fgjn0"]
+[ext_resource type="Texture2D" uid="uid://blxqvvy1kwylp" path="res://sprite/enemyreal.png" id="2_f8m5v"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_njcl5"]
+atlas = ExtResource("2_f8m5v")
+region = Rect2(0, 0, 296, 296)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dvxoj"]
+atlas = ExtResource("2_f8m5v")
+region = Rect2(296, 0, 296, 296)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8jyea"]
+atlas = ExtResource("2_f8m5v")
+region = Rect2(0, 296, 296, 296)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_508ta"]
+atlas = ExtResource("2_f8m5v")
+region = Rect2(296, 296, 296, 296)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ja2yc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_njcl5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dvxoj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8jyea")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_508ta")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_agw5b"]
+radius = 68.0074
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_srxmk"]
+radius = 91.7878
+
+[node name="Enemy" type="CharacterBody2D"]
+position = Vector2(438, 324)
+script = ExtResource("1_fgjn0")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(36, 4)
+scale = Vector2(0.543919, 0.506757)
+sprite_frames = SubResource("SpriteFrames_ja2yc")
+autoplay = "default"
+frame_progress = 0.324201
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(35, 17)
+shape = SubResource("CircleShape2D_agw5b")
+
+[node name="Hitbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" groups=["enemy"]]
+position = Vector2(31, 18)
+shape = SubResource("CircleShape2D_srxmk")
