@@ -1,39 +1,39 @@
 [gd_scene load_steps=11 format=3 uid="uid://c1abscvgr4knq"]
 
 [ext_resource type="Script" path="res://InGame/enemy.gd" id="1_fgjn0"]
-[ext_resource type="Texture2D" uid="uid://blxqvvy1kwylp" path="res://sprite/enemyreal.png" id="2_f8m5v"]
-[ext_resource type="PackedScene" uid="uid://buwox2xdrn2i0" path="res://InGame/health_bar.tscn" id="3_50xsl"]
+[ext_resource type="Texture2D" uid="uid://blxqvvy1kwylp" path="res://sprite/monster/enemyreal.png" id="2_ukpxx"]
+[ext_resource type="PackedScene" uid="uid://dakk1xsxrywr5" path="res://InGame/health_bar.tscn" id="3_wtxya"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_njcl5"]
-atlas = ExtResource("2_f8m5v")
+[sub_resource type="AtlasTexture" id="AtlasTexture_825jg"]
+atlas = ExtResource("2_ukpxx")
 region = Rect2(0, 0, 296, 296)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_dvxoj"]
-atlas = ExtResource("2_f8m5v")
+[sub_resource type="AtlasTexture" id="AtlasTexture_eodbo"]
+atlas = ExtResource("2_ukpxx")
 region = Rect2(296, 0, 296, 296)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_8jyea"]
-atlas = ExtResource("2_f8m5v")
+[sub_resource type="AtlasTexture" id="AtlasTexture_oirnw"]
+atlas = ExtResource("2_ukpxx")
 region = Rect2(0, 296, 296, 296)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_508ta"]
-atlas = ExtResource("2_f8m5v")
+[sub_resource type="AtlasTexture" id="AtlasTexture_3cpdl"]
+atlas = ExtResource("2_ukpxx")
 region = Rect2(296, 296, 296, 296)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ja2yc"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_njcl5")
+"texture": SubResource("AtlasTexture_825jg")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_dvxoj")
+"texture": SubResource("AtlasTexture_eodbo")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_8jyea")
+"texture": SubResource("AtlasTexture_oirnw")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_508ta")
+"texture": SubResource("AtlasTexture_3cpdl")
 }],
 "loop": true,
 "name": &"default",
@@ -54,21 +54,19 @@ script = ExtResource("1_fgjn0")
 position = Vector2(36, 4)
 scale = Vector2(0.543919, 0.506757)
 sprite_frames = SubResource("SpriteFrames_ja2yc")
-autoplay = "default"
-frame_progress = 0.324201
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(35, 17)
 shape = SubResource("CircleShape2D_agw5b")
-
-[node name="HealthBar" parent="." instance=ExtResource("3_50xsl")]
-offset_left = -10.0
-offset_top = 114.0
-offset_right = 75.0
-offset_bottom = 124.0
 
 [node name="Hitbox" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" groups=["enemy"]]
 position = Vector2(31, 18)
 shape = SubResource("CircleShape2D_srxmk")
+
+[node name="healthBar" parent="." instance=ExtResource("3_wtxya")]
+offset_left = -75.0
+offset_top = 115.0
+offset_right = 131.0
+offset_bottom = 159.0

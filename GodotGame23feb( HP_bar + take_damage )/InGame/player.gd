@@ -1,12 +1,15 @@
-extends CharacterBody2D
+class_name Player extends CharacterBody2D
 
 @export var speed: float = 300.0
-@export var healthMax: int = 10
+
+@export var healthMax: float = 20
+@onready var currentHealth: float = healthMax
+
 @onready var player = $AnimatedSprite2D  # แก้ให้ตรงกับชื่อจริง
+
 @onready var bullet_scene = preload("res://InGame/Bullet.tscn")
 
 var last_direction = Vector2.DOWN
-var health = 10
 
 func _physics_process(delta):
 	var direction = Vector2.ZERO
@@ -52,6 +55,6 @@ func shoot():
 		bullet.get_node("AnimatedSprite2D").play("shootnormal")
 
 func take_damage(damage):
-	health -= damage
-	if health <= 0:
+	currentHealth -= damage
+	if currentHealth <= 0:
 		print("Game over")

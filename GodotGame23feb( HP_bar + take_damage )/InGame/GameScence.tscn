@@ -1,10 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://da7pwkjpr15o3"]
+[gd_scene load_steps=9 format=3 uid="uid://da7pwkjpr15o3"]
 
+[ext_resource type="Texture2D" uid="uid://xv4ri33qf4r5" path="res://sprite/Interface_&_Map/mapmap.png" id="1_erhl8"]
 [ext_resource type="PackedScene" uid="uid://duqkvkl5f2u4a" path="res://InGame/player.tscn" id="1_jb0f3"]
-[ext_resource type="Texture2D" uid="uid://cpvcya5lq4761" path="res://sprite/black.png" id="1_xlu8k"]
 [ext_resource type="PackedScene" uid="uid://skx4hf5c78oh" path="res://InGame/Bullet.tscn" id="2_afx4m"]
 [ext_resource type="PackedScene" uid="uid://c1abscvgr4knq" path="res://InGame/enemy.tscn" id="3_7k1jl"]
-[ext_resource type="Texture2D" uid="uid://xv4ri33qf4r5" path="res://sprite/mapmap.png" id="7_cvo7e"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5of4p"]
 size = Vector2(14, 1115)
@@ -22,29 +21,29 @@ size = Vector2(11, 1166.75)
 position = Vector2(80, 133)
 
 [node name="BackGround" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(1736, 439)
 scale = Vector2(44.9947, 17.7724)
-texture = ExtResource("1_xlu8k")
 
 [node name="Mapmap" type="Sprite2D" parent="."]
 position = Vector2(275, 101)
 scale = Vector2(1.71092, 1.47319)
-texture = ExtResource("7_cvo7e")
+texture = ExtResource("1_erhl8")
 
 [node name="Mapmap2" type="Sprite2D" parent="."]
 position = Vector2(973, 100)
 scale = Vector2(1.75093, 1.48827)
-texture = ExtResource("7_cvo7e")
+texture = ExtResource("1_erhl8")
 
 [node name="Mapmap3" type="Sprite2D" parent="."]
 position = Vector2(974, 652)
 scale = Vector2(1.75062, 1.48123)
-texture = ExtResource("7_cvo7e")
+texture = ExtResource("1_erhl8")
 
 [node name="Mapmap4" type="Sprite2D" parent="."]
 position = Vector2(276, 651)
 scale = Vector2(1.71185, 1.47688)
-texture = ExtResource("7_cvo7e")
+texture = ExtResource("1_erhl8")
 
 [node name="Enemy" parent="." groups=["enemy"] instance=ExtResource("3_7k1jl")]
 position = Vector2(1194, 813)

@@ -4,9 +4,9 @@ extends Area2D
 @export var lifetime: float = 2.0  # ตั้งเวลาให้กระสุนหายอัตโนมัติ
 
 @onready var sprite = $AnimatedSprite2D
-
+ 
 var direction = Vector2.ZERO
-var bullet_damage: int = 1
+var bullet_damage: int = 10
 
 func _ready():
 	connect("body_entered", Callable(self, "_on_body_entered"))

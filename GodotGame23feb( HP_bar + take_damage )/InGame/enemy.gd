@@ -1,24 +1,24 @@
 extends CharacterBody2D
 
-@export var speed: float = 100.0  
-@export var healthMax: int = 5 # ส่งค่า HP ไปให้ Node แสดงบนหลอด HP
+@export var speed: float = 100.0 
 @export var stop_distance: float = 20.0  
+
+@export var healthMax: float = 100
+@onready var currentHealth: float = healthMax
 
 @onready var sprite = $AnimatedSprite2D
 @onready var player = get_tree().get_first_node_in_group("player")
 @onready var hitbox = $Hitbox if has_node("Hitbox") else null  # หา Hitbox
 
-var health: int = 5
-
 func _ready():
 	if player == null:
 		print("ERROR: Player not found in group 'player'!")
-
+	
 	if hitbox:
 		hitbox.body_entered.connect(_on_Hitbox_body_entered)
 	else:
 		print("ERROR: Hitbox not found in Enemy.tscn!")
-
+		
 func _physics_process(delta):
 	if player:
 		var direction = (player.global_position - global_position)
@@ -35,10 +35,11 @@ func _physics_process(delta):
 
 func _on_Hitbox_body_entered(body):
 	if body.is_in_group("player"):
-		body.take_damage(healthMax)
-		take_damage(health) # ถ้าชน Enermy จะตายทันที
-		
+		body.take_damage(10)
+		queue_free() # ถ้าชน Enermy จะตายทันที
+	
 func take_damage(damage):
-	health -= damage
-	if health <= 0:
+	currentHealth -= damage
+	if currentHealth <= 0:
 		queue_free()  # ลบ Enemy 
+		
