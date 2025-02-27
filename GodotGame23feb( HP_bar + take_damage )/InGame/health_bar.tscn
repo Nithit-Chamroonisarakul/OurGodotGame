@@ -1,0 +1,34 @@
+[gd_scene load_steps=5 format=3 uid="uid://dakk1xsxrywr5"]
+
+[ext_resource type="Script" path="res://InGame/health_bar.gd" id="1_gkwtb"]
+[ext_resource type="Texture2D" uid="uid://dmfcqh26t5ijp" path="res://sprite/Player/HP/HP_under.png" id="1_xu231"]
+[ext_resource type="Texture2D" uid="uid://s0oibcjyfwqq" path="res://sprite/Player/HP/HP_progress.png" id="2_qsywb"]
+[ext_resource type="Texture2D" uid="uid://btweeadm012vk" path="res://sprite/Player/HP/HP_bar.png" id="4_t7ikw"]
+
+[node name="healthBar" type="TextureProgressBar"]
+offset_left = 142.0
+offset_top = 100.0
+offset_right = 1526.0
+offset_bottom = 273.0
+value = 50.0
+nine_patch_stretch = true
+texture_under = ExtResource("1_xu231")
+texture_progress = ExtResource("4_t7ikw")
+script = ExtResource("1_gkwtb")
+
+[node name="damageBar" type="TextureProgressBar" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1.0
+offset_right = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+value = 25.0
+nine_patch_stretch = true
+texture_progress = ExtResource("2_qsywb")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
