@@ -1,0 +1,130 @@
+[gd_scene load_steps=10 format=3 uid="uid://da7pwkjpr15o3"]
+
+[ext_resource type="PackedScene" uid="uid://duqkvkl5f2u4a" path="res://InGame/player.tscn" id="1_jb0f3"]
+[ext_resource type="Texture2D" uid="uid://cpvcya5lq4761" path="res://sprite/black.png" id="1_xlu8k"]
+[ext_resource type="PackedScene" uid="uid://skx4hf5c78oh" path="res://InGame/Bullet.tscn" id="2_afx4m"]
+[ext_resource type="PackedScene" uid="uid://c1abscvgr4knq" path="res://InGame/enemy.tscn" id="3_7k1jl"]
+[ext_resource type="Texture2D" uid="uid://xv4ri33qf4r5" path="res://sprite/mapmap.png" id="7_cvo7e"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5of4p"]
+size = Vector2(14, 1115)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tn1i1"]
+size = Vector2(1424, 27.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_761e8"]
+size = Vector2(1412.5, 13)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g0is1"]
+size = Vector2(11, 1166.75)
+
+[node name="GameScence" type="Node2D"]
+position = Vector2(80, 133)
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="BackGround" type="Sprite2D" parent="."]
+position = Vector2(1736, 439)
+scale = Vector2(44.9947, 17.7724)
+texture = ExtResource("1_xlu8k")
+
+[node name="Mapmap" type="Sprite2D" parent="."]
+position = Vector2(275, 101)
+scale = Vector2(1.71092, 1.47319)
+texture = ExtResource("7_cvo7e")
+
+[node name="Mapmap2" type="Sprite2D" parent="."]
+position = Vector2(973, 100)
+scale = Vector2(1.75093, 1.48827)
+texture = ExtResource("7_cvo7e")
+
+[node name="Mapmap5" type="Sprite2D" parent="."]
+position = Vector2(1677, 125)
+scale = Vector2(1.75093, 1.48827)
+texture = ExtResource("7_cvo7e")
+
+[node name="Mapmap3" type="Sprite2D" parent="."]
+position = Vector2(974, 652)
+scale = Vector2(1.75062, 1.48123)
+texture = ExtResource("7_cvo7e")
+
+[node name="Mapmap6" type="Sprite2D" parent="."]
+position = Vector2(1681, 678)
+scale = Vector2(1.75062, 1.48123)
+texture = ExtResource("7_cvo7e")
+
+[node name="Mapmap12" type="Sprite2D" parent="."]
+position = Vector2(976, -457)
+scale = Vector2(1.75062, 1.48123)
+texture = ExtResource("7_cvo7e")
+
+[node name="Mapmap11" type="Sprite2D" parent="."]
+position = Vector2(271, -449)
+scale = Vector2(1.75062, 1.48123)
+texture = ExtResource("7_cvo7e")
+
+[node name="Mapmap10" type="Sprite2D" parent="."]
+position = Vector2(-424, 653)
+scale = Vector2(1.75062, 1.48123)
+texture = ExtResource("7_cvo7e")
+
+[node name="Mapmap9" type="Sprite2D" parent="."]
+position = Vector2(-421, 101)
+scale = Vector2(1.75062, 1.48123)
+texture = ExtResource("7_cvo7e")
+
+[node name="Mapmap8" type="Sprite2D" parent="."]
+position = Vector2(975, 1202)
+scale = Vector2(1.75062, 1.48123)
+texture = ExtResource("7_cvo7e")
+
+[node name="Mapmap7" type="Sprite2D" parent="."]
+position = Vector2(270, 1200)
+scale = Vector2(1.75062, 1.48123)
+texture = ExtResource("7_cvo7e")
+
+[node name="Mapmap4" type="Sprite2D" parent="."]
+position = Vector2(276, 651)
+scale = Vector2(1.71185, 1.47688)
+texture = ExtResource("7_cvo7e")
+
+[node name="Enemy" parent="." groups=["enemy"] instance=ExtResource("3_7k1jl")]
+position = Vector2(1234, 887)
+
+[node name="Enemy4" parent="." groups=["enemy"] instance=ExtResource("3_7k1jl")]
+position = Vector2(-33, 870)
+
+[node name="Enemy3" parent="." groups=["enemy"] instance=ExtResource("3_7k1jl")]
+position = Vector2(1261, -149)
+
+[node name="Enemy5" parent="." groups=["enemy"] instance=ExtResource("3_7k1jl")]
+position = Vector2(-79, -153)
+
+[node name="Enemy2" parent="." groups=["enemy"] instance=ExtResource("3_7k1jl")]
+position = Vector2(625, -80)
+
+[node name="player" parent="." instance=ExtResource("1_jb0f3")]
+position = Vector2(519, 430)
+
+[node name="Bullet" parent="." instance=ExtResource("2_afx4m")]
+position = Vector2(155934, -22559)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-78, 382)
+shape = SubResource("RectangleShape2D_5of4p")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(616, -192.25)
+shape = SubResource("RectangleShape2D_tn1i1")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(623, 932)
+shape = SubResource("RectangleShape2D_761e8")
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(1329.5, 366.375)
+shape = SubResource("RectangleShape2D_g0is1")

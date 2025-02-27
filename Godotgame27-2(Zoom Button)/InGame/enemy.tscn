@@ -1,0 +1,72 @@
+[gd_scene load_steps=11 format=3 uid="uid://c1abscvgr4knq"]
+
+[ext_resource type="Script" path="res://InGame/enemy.gd" id="1_fgjn0"]
+[ext_resource type="Texture2D" uid="uid://v7rg77qd5a24" path="res://sprite/gigi2.png" id="2_q1qwl"]
+[ext_resource type="PackedScene" uid="uid://buwox2xdrn2i0" path="res://InGame/health_bar.tscn" id="3_50xsl"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gbq41"]
+atlas = ExtResource("2_q1qwl")
+region = Rect2(0, 0, 240, 240)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nuo06"]
+atlas = ExtResource("2_q1qwl")
+region = Rect2(240, 0, 240, 240)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cscrb"]
+atlas = ExtResource("2_q1qwl")
+region = Rect2(0, 240, 240, 240)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0gtlt"]
+atlas = ExtResource("2_q1qwl")
+region = Rect2(240, 240, 240, 240)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ja2yc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gbq41")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nuo06")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cscrb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0gtlt")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_agw5b"]
+radius = 47.5184
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_srxmk"]
+radius = 53.6004
+
+[node name="Enemy" type="CharacterBody2D"]
+position = Vector2(438, 324)
+script = ExtResource("1_fgjn0")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(36, 4)
+scale = Vector2(0.543919, 0.506757)
+sprite_frames = SubResource("SpriteFrames_ja2yc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(36, 7)
+shape = SubResource("CircleShape2D_agw5b")
+
+[node name="HealthBar" parent="." instance=ExtResource("3_50xsl")]
+offset_left = -10.0
+offset_top = 114.0
+offset_right = 75.0
+offset_bottom = 124.0
+
+[node name="Hitbox" type="Area2D" parent="."]
+
+[node name="hb" type="CollisionShape2D" parent="Hitbox" groups=["enemy"]]
+position = Vector2(35, 8)
+shape = SubResource("CircleShape2D_srxmk")
