@@ -1,4 +1,5 @@
 class_name Player extends CharacterBody2D
+@onready var shoot_sound = $ShootSound  
 
 @export var speed: float = 300.0
 
@@ -45,7 +46,7 @@ func _physics_process(delta):
 			player.play("stand")
 
 func _input(event):
-	if event.is_action_pressed("shoot")and can_shoot ==true:
+	if event.is_action_pressed("shoot") and can_shoot == true:
 		shoot()
 
 func shoot():
@@ -54,16 +55,19 @@ func shoot():
 	bullet.position = position
 	bullet.direction = last_direction
 	get_parent().add_child(bullet)
+	shoot_sound.play()
 	
 	if bullet.has_node("AnimatedSprite2D"):
 		bullet.get_node("AnimatedSprite2D").play("shootnormal")
-	await get_tree().create_timer(1).timeout  # Wait for cooldowncan_shoot = true  # Allow shooting again	
+	await get_tree().create_timer(0.5).timeout  # Wait for cooldowncan_shoot = true  # Allow shooting again	
+	can_shoot = true
 
 func take_damage(damage):
 	currentHealth -= damage
 	if currentHealth <= 0:
 		is_alive = false #new
 		die()
+
 func die(): #new
 	if is_alive == false:
 		player.play("died")

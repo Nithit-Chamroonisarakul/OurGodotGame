@@ -1,74 +1,96 @@
-[gd_scene load_steps=10 format=3 uid="uid://conyn13vrprk0"]
+[gd_scene load_steps=11 format=3 uid="uid://conyn13vrprk0"]
 
 [ext_resource type="Script" path="res://InGame/main_menu.gd" id="1_fgk3v"]
 [ext_resource type="FontFile" uid="uid://bgdg1jjdrwugx" path="res://sprite/VCR_OSD_MONO_1.001.ttf" id="2_5fmhs"]
-[ext_resource type="Texture2D" uid="uid://b81ciwuniyku7" path="res://sprite/interface22222.png" id="2_pcmmo"]
+[ext_resource type="Texture2D" uid="uid://b4k8agrjoeqrd" path="res://sprite/bg2.png" id="2_mpl4i"]
 [ext_resource type="FontFile" uid="uid://m6cevs7d746i" path="res://sprite/alagard.ttf" id="4_malfs"]
 [ext_resource type="FontFile" uid="uid://bng0yhtwwd53d" path="res://sprite/Pixelout Personal Use Only.ttf" id="5_3j1qu"]
+[ext_resource type="AudioStream" uid="uid://c6gqxnufwgu4o" path="res://sprite/game-start-6104.mp3" id="6_43qyo"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_jeb8u"]
-texture = ExtResource("2_pcmmo")
+texture = ExtResource("2_mpl4i")
 
 [sub_resource type="Theme" id="Theme_x6ka5"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4fgth"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u4dv1"]
-bg_color = Color(1, 1, 1, 1)
+bg_color = Color(1, 1, 1, 0)
 corner_radius_top_left = 20
 corner_radius_top_right = 20
 corner_radius_bottom_right = 20
 corner_radius_bottom_left = 20
-shadow_size = 10
 shadow_offset = Vector2(5, 5)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o55fb"]
-bg_color = Color(1, 1, 1, 1)
-corner_radius_top_left = 20
-corner_radius_top_right = 20
-corner_radius_bottom_right = 20
-corner_radius_bottom_left = 20
-shadow_size = 10
-shadow_offset = Vector2(5, 5)
-
-[node name="MainMenu" type="Node2D"]
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 0
 script = ExtResource("1_fgk3v")
 
 [node name="Panel" type="Panel" parent="."]
-offset_left = -3.0
-offset_top = -5.0
-offset_right = 2036.0
-offset_bottom = 1366.0
+layout_mode = 0
+offset_left = -56.0
+offset_top = -89.0
+offset_right = 1970.0
+offset_bottom = 1175.0
 theme_override_styles/panel = SubResource("StyleBoxTexture_jeb8u")
 
 [node name="StartButton" type="Button" parent="."]
-offset_left = 579.0
-offset_top = 405.0
-offset_right = 1330.0
-offset_bottom = 532.0
+layout_mode = 0
+offset_left = 1091.0
+offset_top = 334.0
+offset_right = 1842.0
+offset_bottom = 461.0
 size_flags_horizontal = 4
 size_flags_vertical = 0
 theme = SubResource("Theme_x6ka5")
-theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("2_5fmhs")
 theme_override_font_sizes/font_size = 90
+theme_override_styles/hover = SubResource("StyleBoxFlat_4fgth")
 theme_override_styles/normal = SubResource("StyleBoxFlat_u4dv1")
 text = "START GAME"
 
 [node name="ExitButton" type="Button" parent="."]
-offset_left = 792.0
-offset_top = 624.0
-offset_right = 1081.0
-offset_bottom = 746.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_left = 1099.0
+offset_top = 690.0
+offset_right = 1850.0
+offset_bottom = 817.0
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme = SubResource("Theme_x6ka5")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("2_5fmhs")
-theme_override_font_sizes/font_size = 80
-theme_override_styles/normal = SubResource("StyleBoxFlat_o55fb")
-text = "EXIT"
+theme_override_font_sizes/font_size = 90
+theme_override_styles/hover = SubResource("StyleBoxFlat_4fgth")
+theme_override_styles/normal = SubResource("StyleBoxFlat_u4dv1")
+text = "EXIT
+"
+
+[node name="SettingButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 1088.0
+offset_top = 508.0
+offset_right = 1839.0
+offset_bottom = 635.0
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme = SubResource("Theme_x6ka5")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_5fmhs")
+theme_override_font_sizes/font_size = 90
+theme_override_styles/hover = SubResource("StyleBoxFlat_4fgth")
+theme_override_styles/normal = SubResource("StyleBoxFlat_u4dv1")
+text = "SETTING"
 
 [node name="Label" type="Label" parent="."]
-offset_left = 531.0
-offset_top = 60.0
-offset_right = 2465.0
-offset_bottom = 288.0
+layout_mode = 0
+offset_left = 566.0
+offset_top = 35.0
+offset_right = 2500.0
+offset_bottom = 263.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_constants/shadow_offset_x = 7
@@ -77,13 +99,17 @@ theme_override_font_sizes/font_size = 200
 text = "IGHT LONE"
 
 [node name="Label2" type="Label" parent="."]
-offset_left = 379.0
-offset_top = 67.0
-offset_right = 563.0
-offset_bottom = 367.0
+layout_mode = 0
+offset_left = 414.0
+offset_top = 42.0
+offset_right = 598.0
+offset_bottom = 342.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_constants/shadow_offset_x = 7
 theme_override_fonts/font = ExtResource("5_3j1qu")
 theme_override_font_sizes/font_size = 250
 text = "L"
+
+[node name="ButtonClickSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_43qyo")

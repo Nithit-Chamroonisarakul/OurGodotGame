@@ -1,0 +1,100 @@
+[gd_scene load_steps=10 format=3 uid="uid://dcjp6of3wwa3u"]
+
+[ext_resource type="Script" path="res://InGame/setting.gd" id="1_r5icv"]
+[ext_resource type="Texture2D" uid="uid://b4k8agrjoeqrd" path="res://sprite/bg2.png" id="1_yjncp"]
+[ext_resource type="Texture2D" uid="uid://ctpopnxqlgj7x" path="res://sprite/clickbutton.png" id="3_s8st4"]
+[ext_resource type="FontFile" uid="uid://bgdg1jjdrwugx" path="res://sprite/VCR_OSD_MONO_1.001.ttf" id="3_v2gyx"]
+[ext_resource type="AudioStream" uid="uid://c6gqxnufwgu4o" path="res://sprite/game-start-6104.mp3" id="3_yh31h"]
+[ext_resource type="Texture2D" uid="uid://d3pi6p4f67fqr" path="res://sprite/movebutton (2).png" id="4_7xfjt"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_u4r8w"]
+texture = ExtResource("1_yjncp")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6np0u"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qyuj8"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[node name="setting" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_r5icv")
+
+[node name="Panel" type="Panel" parent="."]
+modulate = Color(0.446777, 0.446777, 0.446777, 1)
+layout_mode = 0
+offset_left = -56.0
+offset_top = -89.0
+offset_right = 1970.0
+offset_bottom = 1175.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_u4r8w")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 1498.0
+offset_top = 284.0
+offset_right = 1779.0
+offset_bottom = 355.0
+theme_override_fonts/font = ExtResource("3_v2gyx")
+theme_override_font_sizes/font_size = 80
+text = "- MOVE"
+
+[node name="Label3" type="Label" parent="."]
+layout_mode = 0
+offset_left = 322.0
+offset_top = 286.0
+offset_right = 603.0
+offset_bottom = 357.0
+theme_override_fonts/font = ExtResource("3_v2gyx")
+theme_override_font_sizes/font_size = 80
+text = "VOLUME"
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 0
+offset_left = 1462.0
+offset_top = 638.0
+offset_right = 1837.0
+offset_bottom = 709.0
+theme_override_fonts/font = ExtResource("3_v2gyx")
+theme_override_font_sizes/font_size = 80
+text = "- ATTACK"
+
+[node name="VolumeSlider" type="HSlider" parent="."]
+layout_mode = 0
+offset_left = 144.0
+offset_top = 172.0
+offset_right = 836.0
+offset_bottom = 658.0
+max_value = 1.0
+step = 0.05
+value = 1.0
+
+[node name="ButtonClickSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_yh31h")
+
+[node name="Clickbutton2" type="Sprite2D" parent="."]
+position = Vector2(1333, 643)
+scale = Vector2(0.572, 0.572)
+texture = ExtResource("3_s8st4")
+
+[node name="Movebutton(2)2" type="Sprite2D" parent="."]
+position = Vector2(1216, 257)
+scale = Vector2(1.46118, 1.31808)
+texture = ExtResource("4_7xfjt")
+
+[node name="BacktoMenuButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 735.0
+offset_right = 595.0
+offset_bottom = 1079.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_v2gyx")
+theme_override_font_sizes/font_size = 80
+theme_override_styles/hover = SubResource("StyleBoxFlat_6np0u")
+theme_override_styles/normal = SubResource("StyleBoxFlat_qyuj8")
+text = "BACK TO MENU
+"
+
+[connection signal="value_changed" from="VolumeSlider" to="." method="_on_volume_slider_value_changed"]
