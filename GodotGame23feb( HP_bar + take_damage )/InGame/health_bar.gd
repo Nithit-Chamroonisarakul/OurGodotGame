@@ -1,25 +1,30 @@
 extends TextureProgressBar
 
-@onready var damage_bar = $damageBar
 @onready var timer = $Timer
+@onready var damageBar = $damageBar
+@onready var healthBar = $healthBar
 
-var parent
-
+var parent 
 var health: float
 
 func _ready():
 	parent = get_parent()
 	health = parent.healthMax
 	self.max_value = health
+	damageBar.max_value = health
+	timer.start()
 	
-	
-
 func _process(delta):
-	if (parent.currentHealth != health) and (parent.currentHealth != 0):
+	if parent is Player:
 		self.visible = true
-		self.value = parent.currentHealth
+		damageBar.visible = true
+		damageBar.value = parent.currentHealth
+	elif (parent.currentHealth != health) and (parent.currentHealth > 0):
+		self.visible = true
+		damageBar.visible = true
+		damageBar.value = parent.currentHealth  # Instantly update damageBar		
 	else:
 		self.visible = false
 
-func _on_timer_timeout():
-	self.value = parent.currentHealth
+func _on_timer_timeout() -> void:
+	self.value = parent.currentHealth  # After delay, update HP bar

@@ -1,4 +1,4 @@
-[gd_scene load_steps=48 format=3 uid="uid://duqkvkl5f2u4a"]
+[gd_scene load_steps=47 format=3 uid="uid://duqkvkl5f2u4a"]
 
 [ext_resource type="Script" path="res://InGame/player.gd" id="1_ih57p"]
 [ext_resource type="Texture2D" uid="uid://e3biyyv6j6ix" path="res://sprite/Player/movement/shoot.png" id="2_rqxyl"]
@@ -7,8 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://lftf5ofsnm4j" path="res://sprite/Player/movement/walkleftt.png" id="5_o3aq3"]
 [ext_resource type="Texture2D" uid="uid://cf47he8fdwa7f" path="res://sprite/Player/movement/walkrighttt.png" id="6_2ye0i"]
 [ext_resource type="Texture2D" uid="uid://c683fapifby0k" path="res://sprite/Player/movement/WALKUPP.png" id="7_alw3p"]
-[ext_resource type="PackedScene" uid="uid://dnorppfkftbrn" path="res://InGame/health_player.tscn" id="8_6wnyf"]
-[ext_resource type="Script" path="res://InGame/health_player.gd" id="9_meufx"]
+[ext_resource type="PackedScene" uid="uid://dakk1xsxrywr5" path="res://InGame/health_bar.tscn" id="8_gcwlw"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nmyxb"]
 atlas = ExtResource("2_rqxyl")
@@ -315,16 +314,13 @@ shape = SubResource("CircleShape2D_88lby")
 [node name="Camera2D" type="Camera2D" parent="."]
 limit_smoothed = true
 
-[node name="HP" parent="." instance=ExtResource("8_6wnyf")]
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 36.0
-offset_top = 360.0
-offset_right = 909.0
-offset_bottom = 477.0
-grow_horizontal = 0
-grow_vertical = 0
-script = ExtResource("9_meufx")
+[node name="healthBar" parent="." instance=ExtResource("8_gcwlw")]
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = -79.0
+offset_top = 249.0
+offset_right = 905.0
+offset_bottom = 627.0
+grow_horizontal = 1
+grow_vertical = 1
