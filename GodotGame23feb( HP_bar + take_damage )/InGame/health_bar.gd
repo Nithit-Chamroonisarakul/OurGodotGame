@@ -12,7 +12,7 @@ func _ready():
 	health = parent.healthMax
 	self.max_value = health
 	damageBar.max_value = health
-	timer.start()
+	timer.start() # Delay
 	
 func _process(delta):
 	if parent is Player:
