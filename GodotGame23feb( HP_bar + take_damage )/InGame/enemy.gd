@@ -42,4 +42,3 @@ func take_damage(damage):
 	currentHealth -= damage
 	if currentHealth <= 0:
 		queue_free()  # ลบ Enemy 
-		
