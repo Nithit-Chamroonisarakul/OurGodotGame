@@ -1,72 +1,75 @@
 [gd_scene load_steps=11 format=3 uid="uid://c1abscvgr4knq"]
 
 [ext_resource type="Script" path="res://InGame/enemy.gd" id="1_fgjn0"]
-[ext_resource type="Texture2D" uid="uid://blxqvvy1kwylp" path="res://sprite/monster/enemyreal.png" id="2_ukpxx"]
+[ext_resource type="Texture2D" uid="uid://c7t0mxh32hixy" path="res://sprite/monster/bat_monster_2.png" id="2_vyw68"]
 [ext_resource type="PackedScene" uid="uid://dakk1xsxrywr5" path="res://InGame/health_bar.tscn" id="3_wtxya"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_825jg"]
-atlas = ExtResource("2_ukpxx")
-region = Rect2(0, 0, 296, 296)
+[sub_resource type="AtlasTexture" id="AtlasTexture_scb0d"]
+atlas = ExtResource("2_vyw68")
+region = Rect2(0, 0, 1024, 1024)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_eodbo"]
-atlas = ExtResource("2_ukpxx")
-region = Rect2(296, 0, 296, 296)
+[sub_resource type="AtlasTexture" id="AtlasTexture_f7kex"]
+atlas = ExtResource("2_vyw68")
+region = Rect2(1024, 0, 1024, 1024)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_oirnw"]
-atlas = ExtResource("2_ukpxx")
-region = Rect2(0, 296, 296, 296)
+[sub_resource type="AtlasTexture" id="AtlasTexture_2qy6o"]
+atlas = ExtResource("2_vyw68")
+region = Rect2(0, 1024, 1024, 1024)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_3cpdl"]
-atlas = ExtResource("2_ukpxx")
-region = Rect2(296, 296, 296, 296)
+[sub_resource type="AtlasTexture" id="AtlasTexture_p0qd4"]
+atlas = ExtResource("2_vyw68")
+region = Rect2(1024, 1024, 1024, 1024)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ja2yc"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_825jg")
+"texture": SubResource("AtlasTexture_scb0d")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_eodbo")
+"texture": SubResource("AtlasTexture_f7kex")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_oirnw")
+"texture": SubResource("AtlasTexture_2qy6o")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_3cpdl")
+"texture": SubResource("AtlasTexture_p0qd4")
 }],
 "loop": true,
 "name": &"default",
 "speed": 5.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_agw5b"]
-radius = 68.0074
+[sub_resource type="CircleShape2D" id="CircleShape2D_b7vgd"]
+radius = 44.0454
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_srxmk"]
-radius = 91.7878
+[sub_resource type="CircleShape2D" id="CircleShape2D_r2blj"]
+radius = 76.1052
 
 [node name="Enemy" type="CharacterBody2D"]
 position = Vector2(438, 324)
+scale = Vector2(0.750115, 0.750115)
 script = ExtResource("1_fgjn0")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(36, 4)
-scale = Vector2(0.543919, 0.506757)
+position = Vector2(-16.1216, 34.6537)
+scale = Vector2(0.213128, 0.198567)
 sprite_frames = SubResource("SpriteFrames_ja2yc")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(35, 17)
-shape = SubResource("CircleShape2D_agw5b")
+position = Vector2(-19, 32)
+shape = SubResource("CircleShape2D_b7vgd")
 
 [node name="Hitbox" type="Area2D" parent="."]
+position = Vector2(-248, -28)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" groups=["enemy"]]
-position = Vector2(31, 18)
-shape = SubResource("CircleShape2D_srxmk")
+position = Vector2(231, 56)
+shape = SubResource("CircleShape2D_r2blj")
 
 [node name="healthBar" parent="." instance=ExtResource("3_wtxya")]
-offset_left = -75.0
-offset_top = 115.0
-offset_right = 131.0
-offset_bottom = 159.0
+offset_left = -98.0
+offset_top = 105.0
+offset_right = 81.0
+offset_bottom = 177.0
+metadata/_edit_use_anchors_ = true
