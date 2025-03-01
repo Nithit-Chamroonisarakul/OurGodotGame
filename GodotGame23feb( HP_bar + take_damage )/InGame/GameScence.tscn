@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://da7pwkjpr15o3"]
+[gd_scene load_steps=10 format=3 uid="uid://da7pwkjpr15o3"]
 
-[ext_resource type="Texture2D" uid="uid://xv4ri33qf4r5" path="res://sprite/Interface_&_Map/mapmap.png" id="1_erhl8"]
+[ext_resource type="Texture2D" uid="uid://xv4ri33qf4r5" path="res://sprite/mapmap.png" id="1_erhl8"]
 [ext_resource type="PackedScene" uid="uid://duqkvkl5f2u4a" path="res://InGame/player.tscn" id="1_jb0f3"]
 [ext_resource type="PackedScene" uid="uid://skx4hf5c78oh" path="res://InGame/Bullet.tscn" id="2_afx4m"]
 [ext_resource type="PackedScene" uid="uid://c1abscvgr4knq" path="res://InGame/enemy.tscn" id="3_7k1jl"]
+[ext_resource type="PackedScene" uid="uid://qv0brrha4iu" path="res://InGame/boss.tscn" id="5_5aby8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5of4p"]
 size = Vector2(14, 1115)
@@ -48,14 +49,14 @@ texture = ExtResource("1_erhl8")
 [node name="Enemy" parent="." groups=["enemy"] instance=ExtResource("3_7k1jl")]
 position = Vector2(1194, 813)
 
-[node name="Enemy4" parent="." groups=["enemy"] instance=ExtResource("3_7k1jl")]
-position = Vector2(-29, 828)
-
 [node name="Enemy3" parent="." groups=["enemy"] instance=ExtResource("3_7k1jl")]
 position = Vector2(1197, -69)
 
 [node name="Enemy2" parent="." groups=["enemy"] instance=ExtResource("3_7k1jl")]
 position = Vector2(20, -39)
+
+[node name="Boss" parent="." groups=["enemy"] instance=ExtResource("5_5aby8")]
+position = Vector2(112, 684)
 
 [node name="player" parent="." instance=ExtResource("1_jb0f3")]
 position = Vector2(482, 405)

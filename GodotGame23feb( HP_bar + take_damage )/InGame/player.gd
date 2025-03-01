@@ -2,7 +2,7 @@ class_name Player extends CharacterBody2D
 
 @export var speed: float = 300.0
 
-@export var healthMax: float = 20
+@export var healthMax: float = 30
 @onready var currentHealth: float = healthMax
 
 @onready var player = $AnimatedSprite2D  # แก้ให้ตรงกับชื่อจริง

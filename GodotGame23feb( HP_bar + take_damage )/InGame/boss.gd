@@ -3,7 +3,7 @@ extends CharacterBody2D
 @export var speed: float = 100.0 
 @export var stop_distance: float = 20.0  
 
-@export var healthMax: float = 50
+@export var healthMax: float = 200
 @onready var currentHealth: float = healthMax
 
 @onready var sprite = $AnimatedSprite2D
@@ -35,8 +35,7 @@ func _physics_process(delta):
 
 func _on_Hitbox_body_entered(body):
 	if body.is_in_group("player"):
-		body.take_damage(10)
-		queue_free() # ถ้าชน Enermy จะตายทันที
+		body.take_damage(5)
 	
 func take_damage(damage):
 	currentHealth -= damage
