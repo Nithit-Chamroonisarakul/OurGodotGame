@@ -1,0 +1,83 @@
+[gd_scene load_steps=8 format=3 uid="uid://bjir30jyk8sif"]
+
+[ext_resource type="Script" path="res://InGame/game_over_scene.gd" id="1_npbgj"]
+[ext_resource type="FontFile" uid="uid://bgdg1jjdrwugx" path="res://sprite/font/VCR_OSD_MONO_1.001.ttf" id="2_rewen"]
+[ext_resource type="AudioStream" uid="uid://c6gqxnufwgu4o" path="res://sprite/Audio/game-start-6104.mp3" id="3_8vvxv"]
+[ext_resource type="AudioStream" uid="uid://c86862gaeb2lo" path="res://sprite/Audio/game-over-arcade-6435.mp3" id="4_8kwwn"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_clu6p"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dakqx"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6j2w1"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[node name="GameOverScene" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_npbgj")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_right = 1921.0
+offset_bottom = 1084.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_clu6p")
+
+[node name="gameover" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 146.0
+offset_top = 117.0
+offset_right = 1904.0
+offset_bottom = 399.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 0, 0, 1)
+theme_override_constants/line_spacing = 5
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("2_rewen")
+theme_override_font_sizes/font_size = 300
+text = "GAME OVER"
+
+[node name="youdied" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 601.0
+offset_top = 432.0
+offset_right = 2359.0
+offset_bottom = 714.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_rewen")
+theme_override_font_sizes/font_size = 150
+text = "YOU DIED"
+
+[node name="BacktoMenuButton" type="Button" parent="."]
+offset_left = 579.0
+offset_top = 623.0
+offset_right = 1276.0
+offset_bottom = 951.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_rewen")
+theme_override_font_sizes/font_size = 80
+theme_override_styles/hover = SubResource("StyleBoxFlat_dakqx")
+theme_override_styles/normal = SubResource("StyleBoxFlat_6j2w1")
+text = "BACK TO MENU
+"
+
+[node name="ButtonClickSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_8vvxv")
+
+[node name="GameOverSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_8kwwn")
+autoplay = true

@@ -1,0 +1,57 @@
+[gd_scene load_steps=9 format=3 uid="uid://skx4hf5c78oh"]
+
+[ext_resource type="Script" path="res://InGame/bullet.gd" id="1_gx6g4"]
+[ext_resource type="Texture2D" uid="uid://c2i4nlw3yxb2t" path="res://sprite/Player/skills/M1actually.png" id="2_gvnyh"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4xoiw"]
+atlas = ExtResource("2_gvnyh")
+region = Rect2(0, 0, 240, 240)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jxjoq"]
+atlas = ExtResource("2_gvnyh")
+region = Rect2(240, 0, 240, 240)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wkkj5"]
+atlas = ExtResource("2_gvnyh")
+region = Rect2(0, 240, 240, 240)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q8d1h"]
+atlas = ExtResource("2_gvnyh")
+region = Rect2(240, 240, 240, 240)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5p61q"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4xoiw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jxjoq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wkkj5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q8d1h")
+}],
+"loop": true,
+"name": &"shootnormal",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_gt0n6"]
+radius = 45.0
+
+[node name="Bullet" type="Area2D" groups=["bullet"]]
+position = Vector2(-7, -14)
+script = ExtResource("1_gx6g4")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(1.00001, 11)
+scale = Vector2(0.637643, 0.499227)
+sprite_frames = SubResource("SpriteFrames_5p61q")
+animation = &"shootnormal"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(3, 5)
+shape = SubResource("CircleShape2D_gt0n6")

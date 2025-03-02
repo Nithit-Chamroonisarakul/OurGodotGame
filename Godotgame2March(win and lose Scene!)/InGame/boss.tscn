@@ -1,0 +1,79 @@
+[gd_scene load_steps=11 format=3 uid="uid://qv0brrha4iu"]
+
+[ext_resource type="Script" path="res://InGame/boss.gd" id="1_2auw6"]
+[ext_resource type="Texture2D" uid="uid://blxqvvy1kwylp" path="res://sprite/monster/enemyreal.png" id="2_rc1mv"]
+[ext_resource type="PackedScene" uid="uid://dakk1xsxrywr5" path="res://InGame/health_bar.tscn" id="4_6fqe1"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c37gm"]
+atlas = ExtResource("2_rc1mv")
+region = Rect2(0, 0, 296, 296)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k4btn"]
+atlas = ExtResource("2_rc1mv")
+region = Rect2(296, 0, 296, 296)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ty310"]
+atlas = ExtResource("2_rc1mv")
+region = Rect2(0, 296, 296, 296)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k1h8e"]
+atlas = ExtResource("2_rc1mv")
+region = Rect2(296, 296, 296, 296)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7ml8h"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c37gm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k4btn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ty310")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k1h8e")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_agw5b"]
+radius = 102.122
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_srxmk"]
+radius = 186.387
+
+[node name="boss" type="CharacterBody2D"]
+position = Vector2(347, 245)
+scale = Vector2(0.732944, 0.732944)
+script = ExtResource("1_2auw6")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(14, -42)
+scale = Vector2(1.40878, 1.40878)
+sprite_frames = SubResource("SpriteFrames_7ml8h")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(5, -9)
+shape = SubResource("CircleShape2D_agw5b")
+
+[node name="Hitbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" groups=["enemy"]]
+position = Vector2(13, -17)
+shape = SubResource("CircleShape2D_srxmk")
+
+[node name="healthBar" parent="." instance=ExtResource("4_6fqe1")]
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = -197.0
+offset_top = 141.0
+offset_right = 221.0
+offset_bottom = 348.0
+grow_horizontal = 1
+grow_vertical = 1
+metadata/_edit_use_anchors_ = true
