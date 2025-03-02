@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://dnorppfkftbrn"]
+
+[ext_resource type="Texture2D" uid="uid://bsc6ol38526fm" path="res://sprite/Player/HP/LifeBarMiniUnder.png" id="1_tu5f1"]
+[ext_resource type="Texture2D" uid="uid://cerj8m0l14afx" path="res://sprite/Player/HP/LifeBarMiniProgress.png" id="3_efecm"]
+
+[node name="HP" type="TextureProgressBar"]
+offset_left = 184.0
+offset_top = 26.0
+offset_right = 1743.0
+offset_bottom = 264.0
+value = 25.0
+nine_patch_stretch = true
+texture_under = ExtResource("1_tu5f1")
+texture_progress = ExtResource("3_efecm")
