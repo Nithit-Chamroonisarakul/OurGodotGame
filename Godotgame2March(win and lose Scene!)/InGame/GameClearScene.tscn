@@ -1,0 +1,63 @@
+[gd_scene load_steps=8 format=3 uid="uid://dtvlenip1ewv0"]
+
+[ext_resource type="Script" path="res://InGame/GameClearScene.gd" id="1_ed04f"]
+[ext_resource type="FontFile" uid="uid://bgdg1jjdrwugx" path="res://sprite/font/VCR_OSD_MONO_1.001.ttf" id="2_7m76h"]
+[ext_resource type="AudioStream" uid="uid://c6gqxnufwgu4o" path="res://sprite/Audio/game-start-6104.mp3" id="3_qc7wm"]
+[ext_resource type="AudioStream" uid="uid://cqs0uigb8hmsa" path="res://sprite/Audio/gameclearsound.mp3" id="4_dg0iq"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7bn4k"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1ates"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8th15"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[node name="GameClearScene" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_ed04f")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1079.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_7bn4k")
+
+[node name="gameclear" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 42.0
+offset_top = 267.0
+offset_right = 2327.0
+offset_bottom = 549.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.917652, 0.914578, 0, 1)
+theme_override_fonts/font = ExtResource("2_7m76h")
+theme_override_font_sizes/font_size = 300
+text = "GAME CLEAR!"
+
+[node name="BacktoMenuButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = -12.0
+offset_top = 829.0
+offset_right = 685.0
+offset_bottom = 1157.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_7m76h")
+theme_override_font_sizes/font_size = 80
+theme_override_styles/hover = SubResource("StyleBoxFlat_1ates")
+theme_override_styles/normal = SubResource("StyleBoxFlat_8th15")
+text = "BACK TO MENU
+"
+
+[node name="ButtonClickSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_qc7wm")
+
+[node name="GameClearSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_dg0iq")
+autoplay = true

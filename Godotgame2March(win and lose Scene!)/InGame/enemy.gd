@@ -4,11 +4,13 @@ extends CharacterBody2D
 @export var stop_distance: float = 20.0  
 
 @export var healthMax: float = 100
+@export var knockback_strength: float = 600.0  #boucne
 @onready var currentHealth: float = healthMax
 
 @onready var sprite = $AnimatedSprite2D
 @onready var player = get_tree().get_first_node_in_group("player")
 @onready var hitbox = $Hitbox if has_node("Hitbox") else null  # หา Hitbox
+
 
 func _ready():
 	if player == null:
@@ -36,9 +38,12 @@ func _physics_process(delta):
 func _on_Hitbox_body_entered(body):
 	if body.is_in_group("player"):
 		body.take_damage(10)
-		queue_free() # ถ้าชน Enermy จะตายทันที
-	
+		#queue_free() # ถ้าชน Enermy จะตายทันที
 func take_damage(damage):
 	currentHealth -= damage
+	var knockback_direction = (global_position - player.global_position).normalized()#boucne
+	velocity = knockback_direction * knockback_strength#boucne 
+	move_and_slide()#boucne
 	if currentHealth <= 0:
-		queue_free()  # ลบ Enemy 
+		queue_free()  # ลบ Enemy
+		get_parent().on_enemy_died()

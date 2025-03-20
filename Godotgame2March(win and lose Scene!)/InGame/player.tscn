@@ -1,6 +1,7 @@
-[gd_scene load_steps=47 format=3 uid="uid://duqkvkl5f2u4a"]
+[gd_scene load_steps=55 format=3 uid="uid://duqkvkl5f2u4a"]
 
 [ext_resource type="Script" path="res://InGame/player.gd" id="1_ih57p"]
+[ext_resource type="Texture2D" uid="uid://bl3rhiaiggx72" path="res://sprite/Player/movement/diedplayer.png" id="2_c2nkv"]
 [ext_resource type="Texture2D" uid="uid://e3biyyv6j6ix" path="res://sprite/Player/movement/shoot.png" id="2_rqxyl"]
 [ext_resource type="Texture2D" uid="uid://ccbi1j07cf6nh" path="res://sprite/Player/movement/standdd.png" id="3_qfsbb"]
 [ext_resource type="Texture2D" uid="uid://burnqogceeae0" path="res://sprite/Player/movement/WALKDOWN (2).png" id="4_slnot"]
@@ -8,6 +9,31 @@
 [ext_resource type="Texture2D" uid="uid://cf47he8fdwa7f" path="res://sprite/Player/movement/walkrighttt.png" id="6_2ye0i"]
 [ext_resource type="Texture2D" uid="uid://c683fapifby0k" path="res://sprite/Player/movement/WALKUPP.png" id="7_alw3p"]
 [ext_resource type="PackedScene" uid="uid://dakk1xsxrywr5" path="res://InGame/health_bar.tscn" id="8_gcwlw"]
+[ext_resource type="AudioStream" uid="uid://bn1pinlf24ywo" path="res://sprite/Audio/mixkit-explainer-video-game-alert-sweep-236.wav" id="10_hm6t1"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8m25p"]
+atlas = ExtResource("2_c2nkv")
+region = Rect2(0, 0, 240, 240)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_txpn5"]
+atlas = ExtResource("2_c2nkv")
+region = Rect2(240, 0, 240, 240)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ht52a"]
+atlas = ExtResource("2_c2nkv")
+region = Rect2(0, 240, 240, 240)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i1n0w"]
+atlas = ExtResource("2_c2nkv")
+region = Rect2(240, 240, 240, 240)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mfsnw"]
+atlas = ExtResource("2_c2nkv")
+region = Rect2(0, 480, 240, 240)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_30rqi"]
+atlas = ExtResource("2_c2nkv")
+region = Rect2(240, 480, 240, 240)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nmyxb"]
 atlas = ExtResource("2_rqxyl")
@@ -155,6 +181,29 @@ region = Rect2(197, 394, 197, 197)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_wmgdh"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8m25p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_txpn5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ht52a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i1n0w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mfsnw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_30rqi")
+}],
+"loop": false,
+"name": &"died",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_nmyxb")
@@ -305,7 +354,7 @@ script = ExtResource("1_ih57p")
 position = Vector2(-5.00001, -8)
 scale = Vector2(0.492525, 0.39951)
 sprite_frames = SubResource("SpriteFrames_wmgdh")
-animation = &"walk_up"
+animation = &"died"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-5, -7)
@@ -318,9 +367,12 @@ limit_smoothed = true
 anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
-offset_left = -79.0
-offset_top = 249.0
-offset_right = 905.0
-offset_bottom = 627.0
+offset_left = -62.0
+offset_top = 301.0
+offset_right = 922.0
+offset_bottom = 679.0
 grow_horizontal = 1
 grow_vertical = 1
+
+[node name="ShootSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("10_hm6t1")
